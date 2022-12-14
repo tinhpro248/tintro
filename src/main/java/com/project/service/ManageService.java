@@ -7,9 +7,7 @@ import com.project.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ManageService {
@@ -124,11 +122,11 @@ public class ManageService {
                         return incidentRepository.getListIncidentTenant(u.getTenants().getRoom().getId());
                     }
                 }
-                return List.of();
+                return Collections.emptyList();
             }
         }
         else {
-            return List.of();
+            return Collections.emptyList();
         }
     }
 
@@ -149,22 +147,22 @@ public class ManageService {
         Optional<Room> r = roomRepository.findById(id);
         if(r.isPresent()){
             if(!r.get().getServiceList().isEmpty()){
-                List<ServiceListReponse> ls = new java.util.ArrayList<>(List.of());
+                List<ServiceListReponse> ls = new java.util.ArrayList<>(Collections.emptyList());
                 for(com.project.entity.Service item : r.get().getServiceList()){
                     ls.add(new ServiceListReponse(item.getId(), item.getName(), item.getPrice(), item.getType()));
                 }
                 return ls;
             }
-            return List.of();
+            return Collections.emptyList();
         }
-        return List.of();
+        return Collections.emptyList();
     }
 
     public List<RoomTusReponse> getTusList(int id){
         Optional<Info> iO = infoRepository.getIn(id);
         if(iO.isPresent()){
             Info i = iO.get();
-            List<RoomTusReponse> ls = new java.util.ArrayList<>(List.of());
+            List<RoomTusReponse> ls = new java.util.ArrayList<>(Collections.emptyList());
             List<Room> roomList = roomRepository.getRoomByUser(id);
             for( Room item : roomList){
                 if(item.getTus() != null){
@@ -173,11 +171,11 @@ public class ManageService {
             }
             return ls;
         }
-        return List.of();
+        return Collections.emptyList();
     }
 
     public List<RoomNoTusReponse> getRoomNoTus(int id){
-        List<RoomNoTusReponse> ls = new java.util.ArrayList<>(List.of());
+        List<RoomNoTusReponse> ls = new java.util.ArrayList<>(Collections.emptyList());
         List<Room> roomList = roomRepository.getRoomByUser(id);
         for( Room item : roomList){
             if(item.getTus() == null){
