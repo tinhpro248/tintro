@@ -4,6 +4,6 @@
     "goal": "-Pprod package -DskipTests"
   },
   "deploy": {
-    "jarName": "./target/tintro-0.0.1-SNAPSHOT.jar"
+    "jarName": "./target/spring-boot-starter-parent-0.0.1-SNAPSHOT.jar"
   }
 }
