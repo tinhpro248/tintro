@@ -12,9 +12,10 @@
 	<artifactId>tintro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tintro</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,6 +65,12 @@
 			<groupId>com.clever</groupId>
 			<artifactId>client</artifactId>
 			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
